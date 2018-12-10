@@ -16,60 +16,60 @@ public class PersonalGoalsDo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String goalNum;
-	private String goalNam;
-	private String goalLvl;
-	private String comSta;
-	private Date setDat;
-	private Date preDat;
-	private String staNum;
+	private String goalName;
+	private String goalLevel;
+	private String completeStatus;
+	private Date setDate;
+	private Date preDate;
+	private String stageNum;
 	private String content;
 	private String reward;
-	private String staSta;
-	private String recNum;
-	private Integer totalN;
-	private Date filTim;
-	private String recDet;
+	private String stageStatus;
+	private String recordNum;
+	private Integer totalNum;
+	private Date fillTime;
+	private String recordDetail;
 	public String getGoalNum() {
 		return goalNum;
 	}
 	public void setGoalNum(String goalNum) {
 		this.goalNum = goalNum;
 	}
-	public String getGoalNam() {
-		return goalNam;
+	public String getGoalName() {
+		return goalName;
 	}
-	public void setGoalNam(String goalNam) {
-		this.goalNam = goalNam;
+	public void setGoalName(String goalName) {
+		this.goalName = goalName;
 	}
-	public String getGoalLvl() {
-		return goalLvl;
+	public String getGoalLevel() {
+		return goalLevel;
 	}
-	public void setGoalLvl(String goalLvl) {
-		this.goalLvl = goalLvl;
+	public void setGoalLevel(String goalLevel) {
+		this.goalLevel = goalLevel;
 	}
-	public String getComSta() {
-		return comSta;
+	public String getCompleteStatus() {
+		return completeStatus;
 	}
-	public void setComSta(String comSta) {
-		this.comSta = comSta;
+	public void setCompleteStatus(String completeStatus) {
+		this.completeStatus = completeStatus;
 	}
-	public Date getSetDat() {
-		return setDat;
+	public Date getSetDate() {
+		return setDate;
 	}
-	public void setSetDat(Date setDat) {
-		this.setDat = setDat;
+	public void setSetDate(Date setDate) {
+		this.setDate = setDate;
 	}
-	public Date getPreDat() {
-		return preDat;
+	public Date getPreDate() {
+		return preDate;
 	}
-	public void setPreDat(Date preDat) {
-		this.preDat = preDat;
+	public void setPreDate(Date preDate) {
+		this.preDate = preDate;
 	}
-	public String getStaNum() {
-		return staNum;
+	public String getStageNum() {
+		return stageNum;
 	}
-	public void setStaNum(String staNum) {
-		this.staNum = staNum;
+	public void setStageNum(String stageNum) {
+		this.stageNum = stageNum;
 	}
 	public String getContent() {
 		return content;
@@ -83,45 +83,45 @@ public class PersonalGoalsDo implements Serializable{
 	public void setReward(String reward) {
 		this.reward = reward;
 	}
-	public String getStaSta() {
-		return staSta;
+	public String getStageStatus() {
+		return stageStatus;
 	}
-	public void setStaSta(String staSta) {
-		this.staSta = staSta;
+	public void setStageStatus(String stageStatus) {
+		this.stageStatus = stageStatus;
 	}
-	public String getRecNum() {
-		return recNum;
+	public String getRecordNum() {
+		return recordNum;
 	}
-	public void setRecNum(String recNum) {
-		this.recNum = recNum;
+	public void setRecordNum(String recordNum) {
+		this.recordNum = recordNum;
 	}
-	public Integer getTotalN() {
-		return totalN;
+	public Integer getTotalNum() {
+		return totalNum;
 	}
-	public void setTotalN(Integer totalN) {
-		this.totalN = totalN;
+	public void setTotalNum(Integer totalNum) {
+		this.totalNum = totalNum;
 	}
-	public Date getFilTim() {
-		return filTim;
+	public Date getFillTime() {
+		return fillTime;
 	}
-	public void setFilTim(Date filTim) {
-		this.filTim = filTim;
+	public void setFillTime(Date fillTime) {
+		this.fillTime = fillTime;
 	}
-	public String getRecDet() {
-		return recDet;
+	public String getRecordDetail() {
+		return recordDetail;
 	}
-	public void setRecDet(String recDet) {
-		this.recDet = recDet;
+	public void setRecordDetail(String recordDetail) {
+		this.recordDetail = recordDetail;
 	}
 	@Override
 	public String toString() {
-		return "PersonalGoalsDo [goalNum=" + goalNum + ", goalNam=" + goalNam
-				+ ", goalLvl=" + goalLvl + ", comSta=" + comSta + ", setDat="
-				+ setDat + ", preDat=" + preDat + ", staNum=" + staNum
-				+ ", content=" + content + ", reward=" + reward + ", staSta="
-				+ staSta + ", recNum=" + recNum + ", totalN=" + totalN
-				+ ", filTim=" + filTim + ", recDet=" + recDet + "]";
+		return "PersonalGoalsDo [goalNum=" + goalNum + ", goalName=" + goalName + ", goalLevel=" + goalLevel
+				+ ", completeStatus=" + completeStatus + ", setDate=" + setDate + ", preDate=" + preDate + ", stageNum="
+				+ stageNum + ", content=" + content + ", reward=" + reward + ", stageStatus=" + stageStatus
+				+ ", recordNum=" + recordNum + ", totalNum=" + totalNum + ", fillTime=" + fillTime + ", recordDetail="
+				+ recordDetail + "]";
 	}
-
+	
+	
 	
 }

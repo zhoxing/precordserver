@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="privateRecord"
+  name="precordserver"
   id="myeclipse.1542516211015"
   context-root="/privateRecord"
   j2ee-spec="1.7"
-  archive="privateRecord.war">
+  archive="precordserver.war">
   <attributes>
     <attribute name="webrootdir" value="src/main/webapp" />
   </attributes>

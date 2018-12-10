@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Implementation-Vendor: Pivotal Software, Inc.
-Implementation-Title: privateRecord
+Built-By: zhouxing
+Build-Jdk: 10.0.1
+Implementation-Title: precordserver
 Implementation-Version: 1.0
 Implementation-Vendor-Id: com.xingxing
-Build-Jdk: 1.6.0_13
-Built-By: zhouxing
-Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
 Implementation-URL: http://projects.spring.io/spring-boot/privateRecor
  d/
+Created-By: Maven Integration for Eclipse
 

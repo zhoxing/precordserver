@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ComponentScan(value = {"com.xingxing.privateRecord.controller"}) 
+@ComponentScan(value = {"com.xingxing.privateRecord.controller","com.xingxing.privateRecord.service","com.xingxing.privateRecord.init"}) 
 @MapperScan("com.xingxing.privateRecord.dao")
 @EnableCaching
 @EnableSwagger2

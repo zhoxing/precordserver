@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xingxing.privateRecord.dao.PersonalGoalsDao">
+	<resultMap type="com.xingxing.privateRecord.domain.PersonalGoalsDo" id="personalGoals">
+		<result column="GOALNUM" property="goalNum"/>
+		<result column="GOALNAM" property="goalName"/>
+		<result column="GOALLVL" property="goalLevel"/>
+		<result column="COMSTA" property="completeStatus"/>
+		<result column="SETDAT" property="setDate"/>
+		<result column="PREDAT" property="preDate"/>
+		<result column="STANUM" property="stageNum"/>
+		<result column="CONTENT" property="content"/>
+		<result column="REWARD" property="reward"/>
+		<result column="STASTA" property="stageStatus"/>
+		<result column="RECNUM" property="recordNum"/>
+		<result column="TOTALN" property="totalNum"/>
+		<result column="FILTIM" property="fillTime"/>
+		<result column="RECDET" property="recordDetail"/>
+	</resultMap>
+
+	<select id="selectGoalListByCondition" parameterType="com.xingxing.privateRecord.qo.GoalCondition"  resultMap="personalGoals">
+		select GOALNUM,GOALNAM,GOALLVL,COMSTA,date_format(SETDAT,'%Y-%m-%d') as SETDAT,date_format(PREDAT,'%Y-%m-%d') as PREDAT from GOALDATAINF where 1=1
+		<if test="goalName != null and '' != goalName">
+			and GOALNAM like "%"#{goalName}"%"
+		</if>
+		<if test="goalLevel != null and '' != goalLevel">
+			and GOALLVL = #{goalLevel}
+		</if>
+		<if test="completeStatus != null and '' != completeStatus">
+			and COMSTA = #{completeStatus}
+		</if>
+		<if test="setDate != null and '' != setDate">
+			and SETDAT = #{setDate}
+		</if>
+		order by GOALNUM
+	</select>
+	
+	<select id="selectCountByComSta" parameterType="String" resultType="Integer">
+		select count(*) from GOALDATAINF where COMSTA!=#{completeStatus}
+	</select>
+	
+	<select id="selectGoalEndID" resultType="String">
+		select GOALNUM from GOALDATAINF ORDER BY GOALNUM DESC LIMIT 0,1 
+	</select>
+	
+	<insert id="insertDataForGoal" parameterType="com.xingxing.privateRecord.qo.GoalCondition">
+		insert into GOALDATAINF values(#{goalNum},#{goalName},#{goalLevel},#{completeStatus},#{setDate},#{preDate})
+	</insert>
+	
+	<insert id="insertDataForStageRef" parameterType="com.xingxing.privateRecord.qo.StageCondition">
+		insert into GOALSTAGEREF values(#{goalNum},#{stageNum},#{content},#{reward},#{stageStatus})
+	</insert>
+	
+	<update id="updateDataForGoal" parameterType="com.xingxing.privateRecord.qo.GoalCondition">
+		update GOALDATAINF set GOALLVL = #{goalLevel},COMSTA = #{completeStatus}, PREDAT = #{preDate} where GOALNUM = #{goalNum}
+	</update>
+</mapper>

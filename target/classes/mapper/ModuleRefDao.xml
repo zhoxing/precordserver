@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xingxing.privateRecord.dao.ModuleRefDao">
+	<resultMap type="com.xingxing.privateRecord.domain.ModuleRefDo" id="moduleRef">
+		<result column="MODIDD" property="modIdd"/>
+		<result column="MODNAM" property="modName"/>
+		<result column="WISNUM" property="wisNum"/>
+		<result column="WISDOM" property="wisdom"/>
+		<result column="NOTITIME" property="notiTime"/>
+		<result column="NOTIMSG" property="notiMsg"/>
+	</resultMap>
+
+	<select id="selectModuleList"  resultMap="moduleRef">
+		select * from MODULEINF 
+	</select>
+	
+	<select id="selectWisdomListById" parameterType="String" resultMap="moduleRef">
+		select * from WISDOMINF where MODIDD = #{modIdd}
+	</select>
+</mapper>
