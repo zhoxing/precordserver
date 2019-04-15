@@ -12,6 +12,7 @@
 		<result column="CONTENT" property="content"/>
 		<result column="REWARD" property="reward"/>
 		<result column="STASTA" property="stageStatus"/>
+		<result column="MODTIM" property="modifyTime"/>
 		<result column="RECNUM" property="recordNum"/>
 		<result column="TOTALN" property="totalNum"/>
 		<result column="FILTIM" property="fillTime"/>
@@ -48,10 +49,34 @@
 	</insert>
 	
 	<insert id="insertDataForStageRef" parameterType="com.xingxing.privateRecord.qo.StageCondition">
-		insert into GOALSTAGEREF values(#{goalNum},#{stageNum},#{content},#{reward},#{stageStatus})
+		insert into GOALSTAGEREF values(#{stageNum},#{goalNum},#{content},#{reward},#{stageStatus},#{modifyTime})
 	</insert>
 	
 	<update id="updateDataForGoal" parameterType="com.xingxing.privateRecord.qo.GoalCondition">
 		update GOALDATAINF set GOALLVL = #{goalLevel},COMSTA = #{completeStatus}, PREDAT = #{preDate} where GOALNUM = #{goalNum}
 	</update>
+	
+	<select id="selectStageList" parameterType="com.xingxing.privateRecord.qo.StageCondition" resultMap="personalGoals">
+		select * from GOALSTAGEREF where 1=1
+		<if test="goalNum != null and '' != goalNum">
+			and GOALNUM = #{goalNum}
+		</if>
+		<if test="stageStatus != null and '' != stageStatus">
+			and STASTA = #{stageStatus}
+		</if>
+		order by GOALNUM,STANUM
+	</select>
+	
+	<select id="selectStageNumByGoalNum" parameterType="String" resultMap="personalGoals">
+		select * from GOALSTAGEREF where GOALNUM = #{goalNum} order by STANUM desc
+	</select>
+	
+	<insert id="mergeDataForStage" parameterType="com.xingxing.privateRecord.qo.StageCondition">
+		insert into GOALSTAGEREF(GOALNUM,STANUM,CONTENT,REWARD,STASTA,MODTIM) values(#{goalNum},#{stageNum},#{content},#{reward},#{stageStatus},#{modifyTime})
+		on duplicate key update CONTENT = #{content} , REWARD = #{reward} , STASTA = #{stageStatus} , MODTIM = #{modifyTime}
+	</insert>
+	
+	<select id="selectCountByStageSta" parameterType="String" resultType="Integer">
+		select count(*) from GOALSTAGEREF where STASTA != #{stageStatus}
+	</select>
 </mapper>

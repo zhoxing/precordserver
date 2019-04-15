@@ -1,6 +1,7 @@
 package com.xingxing.privateRecord.domain;
 
 import java.io.Serializable;
+import java.security.Timestamp;
 import java.util.Date;
 
 /**
@@ -25,9 +26,10 @@ public class PersonalGoalsDo implements Serializable{
 	private String content;
 	private String reward;
 	private String stageStatus;
+	private String modifyTime;
 	private String recordNum;
 	private Integer totalNum;
-	private Date fillTime;
+	private String fillTime;
 	private String recordDetail;
 	public String getGoalNum() {
 		return goalNum;
@@ -101,26 +103,34 @@ public class PersonalGoalsDo implements Serializable{
 	public void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
 	}
-	public Date getFillTime() {
-		return fillTime;
-	}
-	public void setFillTime(Date fillTime) {
-		this.fillTime = fillTime;
-	}
+	
 	public String getRecordDetail() {
 		return recordDetail;
 	}
 	public void setRecordDetail(String recordDetail) {
 		this.recordDetail = recordDetail;
 	}
+	public String getModifyTime() {
+		return modifyTime;
+	}
+	public void setModifyTime(String modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+	public String getFillTime() {
+		return fillTime;
+	}
+	public void setFillTime(String fillTime) {
+		this.fillTime = fillTime;
+	}
 	@Override
 	public String toString() {
 		return "PersonalGoalsDo [goalNum=" + goalNum + ", goalName=" + goalName + ", goalLevel=" + goalLevel
 				+ ", completeStatus=" + completeStatus + ", setDate=" + setDate + ", preDate=" + preDate + ", stageNum="
 				+ stageNum + ", content=" + content + ", reward=" + reward + ", stageStatus=" + stageStatus
-				+ ", recordNum=" + recordNum + ", totalNum=" + totalNum + ", fillTime=" + fillTime + ", recordDetail="
-				+ recordDetail + "]";
+				+ ", modifyTime=" + modifyTime + ", recordNum=" + recordNum + ", totalNum=" + totalNum + ", fillTime="
+				+ fillTime + ", recordDetail=" + recordDetail + "]";
 	}
+	
 	
 	
 	

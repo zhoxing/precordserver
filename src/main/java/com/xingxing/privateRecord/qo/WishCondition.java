@@ -1,29 +1,30 @@
-package com.xingxing.privateRecord.domain;
+package com.xingxing.privateRecord.qo;
 
 import java.io.Serializable;
-import java.util.Date;
 
-public class WishingDo implements Serializable{
+public class WishCondition implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	private Integer wishId;
-	private Date wishDate;
+	private static final long serialVersionUID = -4667267648321353158L;
+
+	private String wishId;
+	private String wishDate;
 	private String wishContent;
 	private String wishStatus;
-	public Integer getWishId() {
+	
+	
+	public String getWishId() {
 		return wishId;
 	}
-	public void setWishId(Integer wishId) {
+	public void setWishId(String wishId) {
 		this.wishId = wishId;
 	}
-	public Date getWishDate() {
+	public String getWishDate() {
 		return wishDate;
 	}
-	public void setWishDate(Date wishDate) {
+	public void setWishDate(String wishDate) {
 		this.wishDate = wishDate;
 	}
 	public String getWishContent() {
@@ -40,11 +41,11 @@ public class WishingDo implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "WishingDo [wishId=" + wishId + ", wishDate=" + wishDate + ", wishContent=" + wishContent
+		return "WishCondition [wishId=" + wishId + ", wishDate=" + wishDate + ", wishContent=" + wishContent
 				+ ", wishStatus=" + wishStatus + "]";
 	}
 	
 	
-
+	
 	
 }

@@ -20,7 +20,7 @@ public class IDQueryRunner implements CommandLineRunner{
 		 String goalNum = personalGoalsService.queryGoalEndID();
 		 String endString = goalNum.substring(1, goalNum.length());
 		 goalEndNum = Integer.valueOf(endString);
-		 System.out.println("最后的数字:"+goalEndNum);
+		// System.out.println("最后的数字:"+goalEndNum);
 	}
 
 }

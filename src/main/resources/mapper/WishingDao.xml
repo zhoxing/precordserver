@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xingxing.privateRecord.dao.WishingDao">
+	<resultMap type="com.xingxing.privateRecord.domain.WishingDo" id="wishing">
+		<result column="WISHID" property="wishId"/>
+		<result column="WISHDATE" property="wishDate"/>
+		<result column="WISHCONT" property="wishContent"/>
+		<result column="WISHSTA" property="wishStatus"/>
+	</resultMap>
+
+	<select id="selectDataForWish" parameterType="com.xingxing.privateRecord.qo.WishCondition" resultMap="wishing">
+		select * from WISHLISTINF where 1=1
+		<if test="null != wishDate and '' != wishDate">
+			and WISHDATE = #{wishDate}
+		</if>
+		<if test="null != wishStatus and '' != wishStatus">
+			and WISHSTA = #{wishStatus}
+		</if>
+		order by WISHDATE
+	</select>
+	
+	<insert id="mergeDataForWish" parameterType="com.xingxing.privateRecord.qo.WishCondition">
+		INSERT INTO WISHLISTINF(WISHID,WISHDATE,WISHCONT,WISHSTA) VALUES (#{wishId},#{wishDate},#{wishContent},#{wishStatus}) ON DUPLICATE KEY UPDATE WISHSTA=#{wishStatus}
+	</insert>
+	
+	<select id="selectCountByWishSta" parameterType="String" resultType="Integer">
+		select count(*) from WISHLISTINF where WISHSTA = #{wishStatus}
+	</select>
+</mapper>

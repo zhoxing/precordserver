@@ -17,4 +17,23 @@
 	<select id="selectWisdomListById" parameterType="String" resultMap="moduleRef">
 		select * from WISDOMINF where MODIDD = #{modIdd}
 	</select>
+	
+	<select id="selectWisdomList" parameterType="com.xingxing.privateRecord.qo.WisdomCondition" resultMap="moduleRef">
+		select * from WISDOMINF where 1=1
+		<if test="modIdd != null and '' != modIdd">
+			and MODIDD = #{modIdd}
+		</if>
+		<if test="wisNum != null and '' != wisNum">
+			and WISNUM = #{wisNum}
+		</if>
+		<if test="wisdom != null and '' != wisdom">
+			and WISDOM like "%"#{wisdom}"%"
+		</if>
+		order by MODIDD,WISNUM
+	</select>
+	
+	<insert id="mergeDataForWisdom" parameterType="com.xingxing.privateRecord.qo.WisdomCondition">
+		insert into WISDOMINF(WISNUM,MODIDD,WISDOM) values(#{wisNum},#{modIdd},#{wisdom})
+		on duplicate key update MODIDD = #{modIdd} , WISDOM = #{wisdom}
+	</insert>
 </mapper>

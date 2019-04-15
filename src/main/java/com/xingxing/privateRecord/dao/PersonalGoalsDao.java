@@ -51,4 +51,30 @@ public interface PersonalGoalsDao {
 	 */
 	public void insertDataForRecord();
 	
+	/**
+	 * 根据目标编号和阶段状态查询阶段集合
+	 * @param stageCondition
+	 * @return
+	 */
+	public List<PersonalGoalsDo> selectStageList(StageCondition stageCondition);
+	
+	/**
+	 * 新增或修改阶段
+	 * @param stageCondition
+	 */
+	public void mergeDataForStage(StageCondition stageCondition);
+	
+	/**
+	 * 根据阶段状态查询未完成阶段数量
+	 * @param stageStatus
+	 * @return
+	 */
+	public  Integer selectCountByStageSta(String stageStatus);
+	
+	/**
+	 * 根据目标编号查询该目标下所有阶段
+	 * @param goalNum
+	 * @return
+	 */
+	public List<PersonalGoalsDo> selectStageNumByGoalNum(String goalNum);
 }

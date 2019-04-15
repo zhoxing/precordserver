@@ -14,8 +14,15 @@ public class StageCondition implements Serializable{
 	private String content;
 	private String reward;
 	private String stageStatus;
+	private String modifyTime;
 	
 	
+	public String getModifyTime() {
+		return modifyTime;
+	}
+	public void setModifyTime(String modifyTime) {
+		this.modifyTime = modifyTime;
+	}
 	public int getCount() {
 		return count;
 	}
@@ -54,9 +61,10 @@ public class StageCondition implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "StageCondition [goalNum=" + goalNum + ", stageNum=" + stageNum + ", content=" + content + ", reward="
-				+ reward + ", stageStatus=" + stageStatus + "]";
+		return "StageCondition [goalNum=" + goalNum + ", stageNum=" + stageNum + ", count=" + count + ", content="
+				+ content + ", reward=" + reward + ", stageStatus=" + stageStatus + ", modifyTime=" + modifyTime + "]";
 	}
+	
 	
 	
 	

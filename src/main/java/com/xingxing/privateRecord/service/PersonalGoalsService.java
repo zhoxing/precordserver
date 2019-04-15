@@ -7,8 +7,11 @@ import org.springframework.stereotype.Service;
 import com.xingxing.privateRecord.domain.ModuleRefDo;
 import com.xingxing.privateRecord.domain.PersonalGoalsDo;
 import com.xingxing.privateRecord.domain.UserInfoDo;
+import com.xingxing.privateRecord.domain.WishingDo;
 import com.xingxing.privateRecord.qo.GoalCondition;
 import com.xingxing.privateRecord.qo.StageCondition;
+import com.xingxing.privateRecord.qo.WisdomCondition;
+import com.xingxing.privateRecord.qo.WishCondition;
 import com.xingxing.privateRecord.util.PrecordException;
 
 
@@ -66,4 +69,68 @@ public interface PersonalGoalsService {
 	 * @param stageCondition
 	 */
 	public void addStage(StageCondition stageCondition);
+	
+	/**
+	 * 根据许愿日期和状态查询愿望清单集合
+	 * @param wishDate
+	 * @param wishStatus
+	 * @return
+	 */
+	public List<WishingDo> queryWishList(String wishDate, String wishStatus);
+	
+	/**
+	 * 新增或修改愿望
+	 * @param wishCondition
+	 */
+	public void addOrUpdateWish(WishCondition wishCondition);
+	
+	/**
+	 * 根据完成状态查询未完成愿望的数量
+	 * @param wishStatus
+	 * @return
+	 */
+	public Integer queryCountByWishSta(String wishStatus);
+	
+	/**
+	 * 根据目标编号和状态查询阶段集合
+	 * @param goalNum
+	 * @param satgeStatus
+	 * @return
+	 */
+	public List<PersonalGoalsDo> queryStageList(String goalNum, String stageStatus);
+	
+	/**
+	 * 新增或修改阶段
+	 * @param wishCondition
+	 */
+	public void addOrUpdateStage(StageCondition stageCondition);
+	
+	/**
+	 * 根据完成状态查询未完成阶段的数量
+	 * @param wishStatus
+	 * @return
+	 */
+	public Integer queryCountByStageSta(String stageStatus);
+	
+	/**
+	 * 查询该目标下最后一个阶段尾数为新增阶段准备
+	 * @param goalNum
+	 * @return
+	 */
+	public String queryLastCountByGoalNum(String goalNum);
+	
+	/**
+	 * 查询名言集合
+	 * @param modIdd
+	 * @param wisNum
+	 * @param wisdom
+	 * @return
+	 */
+	public List<ModuleRefDo> queryWisdomList(String modIdd, String wisNum, String wisdom);
+	
+	/**
+	 * 新增或修改名言
+	 * @param wisdomCondition
+	 */
+	public void addOrUpdateWisdom(WisdomCondition wisdomCondition);
 }
